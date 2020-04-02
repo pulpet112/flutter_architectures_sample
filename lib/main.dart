@@ -1,24 +1,32 @@
-// Copyright 2018 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'package:flutter/material.dart';
+import 'package:flutter_architectures_sample/model/SimpleSocialMediaRepository.dart';
+import 'package:flutter_architectures_sample/model/social_media_model.dart';
 import 'package:flutter_architectures_sample/resources/strings.dart';
+import 'package:flutter_architectures_sample/screen/favourites/favourites_screen.dart';
+import 'package:flutter_architectures_sample/screen/routes.dart';
+import 'package:flutter_architectures_sample/screen/start/start_screen.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(ArchitecturesSampleApp());
+void main() {
+  runApp(ArchitecturesSampleApp(repository: SimpleSocialMediaRepository()));
+}
 
 class ArchitecturesSampleApp extends StatelessWidget {
+  final SimpleSocialMediaRepository repository;
+
+  ArchitecturesSampleApp({Key key, this.repository}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: Strings.architecturesSampleApp,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(Strings.architecturesSampleApp),
-        ),
-        body: Center(
-          child: Text(Strings.architecturesSampleApp),
-        ),
+    return ChangeNotifierProvider(
+      create: (context) => SocialMediaModel(repository),
+      child: MaterialApp(
+        title: Strings.architecturesSampleApp,
+        debugShowCheckedModeBanner: false,
+        home: StartScreen(),
+        routes: <String, WidgetBuilder>{
+          Routes.favourites: (context) => FavouritesScreen()
+        },
       ),
     );
   }
