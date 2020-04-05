@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_architectures_sample/model/social_media.dart';
+import 'package:flutter_architectures_sample/model/socialmedia/social_media.dart';
 import 'package:flutter_architectures_sample/resources/dimens.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

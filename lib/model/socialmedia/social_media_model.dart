@@ -1,8 +1,7 @@
 import 'dart:collection';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_architectures_sample/model/SimpleSocialMediaRepository.dart';
-import 'package:flutter_architectures_sample/model/social_media.dart';
+import 'package:flutter_architectures_sample/model/socialmedia/SimpleSocialMediaRepository.dart';
+import 'package:flutter_architectures_sample/model/socialmedia/social_media.dart';
 
 class SocialMediaModel extends ChangeNotifier {
   final SimpleSocialMediaRepository _repository;

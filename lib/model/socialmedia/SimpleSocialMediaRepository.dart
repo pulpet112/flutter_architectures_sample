@@ -1,4 +1,4 @@
-import 'package:flutter_architectures_sample/model/social_media.dart';
+import 'package:flutter_architectures_sample/model/socialmedia/social_media.dart';
 import 'package:flutter_architectures_sample/resources/images.dart';
 
 class SimpleSocialMediaRepository {

@@ -12,19 +12,23 @@ class _StartScreenState extends State<StartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Strings.socialMediaListTitle),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.favorite,
-            ),
-            onPressed: () {
-              Navigator.of(context).pushNamed(Routes.favourites);
-            },
-          )
-        ],
+        title: Text(Strings.architecturesSampleApp),
       ),
-      body: SocialMediaListScreen(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            RaisedButton(
+              child: Text(Strings.personalDataFormTitle),
+              onPressed: () => Navigator.of(context).pushReplacementNamed(Routes.personalDataForm),
+            ),
+            RaisedButton(
+              child: Text(Strings.socialMediaListTitle),
+              onPressed: () => Navigator.of(context).pushReplacementNamed(Routes.socialMedia),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
